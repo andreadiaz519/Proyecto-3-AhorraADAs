@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto # 3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header>
+        <nav class="h-auto p-4 bg-fuchsia-400">
+            <div>
+                <a href="">
+                    <h1 class="flex text-white text-4xl font-bold ml-8">
+                        <i class="bi bi-wallet-fill"></i>
+                        AhorrADAs</h1>
+                </a>
+            </div>
+            <div class="flex flex-row item-center justify-end h-full ">
+                <a href=""></a>
+                <h2 class="text-white mr-6">
+                <i class="bi bi-graph-up-arrow"></i>
+                Balance</h2>
+                <a href=""></a>
+                <h2 class="text-white mr-6">
+                <i <i class="bi bi-tag-fill"></i>
+                Categorias</h2>
+                <a href=""></a>
+                <h2 class="text-white mr-6">
+                <i <i class="bi bi-pie-chart-fill"></i>
+                Reportes</h2>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto pt-20 pl-20 pr-20">
+        <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex flex-col gap-4 md:w-1/3 pr-3 mb-10">
+                <section class="bg-white rounded-lg p-6 shadow-lg mb-3 mt-5">
+                    <h2 class="text-3xl font-bold">Balance</h2>
+                    <h3 class="mt-10 text-lg">Ganancias</h3>
+                    <h3 class="mt-10 text-lg">Gastos</h3>
+                    <h3 class="mt-10 text-lg">Total</h3>
+                </section>
+                <section class="bg-white rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">Filtros</h2>
+                    <a href="#" class="text-blue-500 hover:underline pl-40">Restablecer filtros</a>
+            <form class="space-y-4 ">
+                <div>
+                    <label for="tipo" class="block text-base font-medium text-gray-700">Tipo</label>
+                    <select id="tipo" name="tipo" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="todos">Todos</option>
+                        <option value="gastos">Gasto</option>
+                        <option value="ganancia">Ganancia</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="categoria" class="block text-base font-medium text-gray-700">Categoria</label>
+                    <select id="tipo" name="categoria" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="todas">Todas</option>
+                        <option value="comida">Comida</option>
+                        <option value="servicios">Servicios</option>
+                        <option value="salidas">Salidas</option>
+                        <option value="educaciom">Educacion</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="trabajo">Trabajo</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="desde" class="block text-base font-medium text-gray-700">Desde</label>
+                    <input type="date" id="desde" name="desde" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="ordenar" class="block text-base font-medium text-gray-700">Ordenar por</label>
+                    <select id="ordenar" name="ordenar" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="mas-recientes">Mas reciente</option>
+                        <option value="menos-recientes">Menos reciente</option>
+                        <option value="mayor-monto">Mayor monto</option>
+                        <option value="menor-monto">Menor monto</option>
+                        <option value="A/Z">A/Z</option>
+                        <option value="Z/A">Z/A</option>
+                    </select>
+                </div>
+                </form>
+                </section>
+            </div>
+            <section class="bg-white rounded-lg p-6 shadow-lg md:w-2/3 mb-10">
+                <h2 class="text-2xl font-bold">Operaciones</h2>
+                <div>
+                    <button class="p-2 bg-fuchsia-400 rounded-lg">+ Nueva Operacion</button>
+                </div>
+                <img  class="" src="imagenes/E-Wallet-rafiki.png" alt="">
+                <h2 class="text-center text-2xl font-medium">Sin resultados</h2>
+                <h3 class="text-center p-5">Cambia los filtros o agrega operaciones</h3>
+            </section>
+        </div>
+    </div>
+    
+</body>
+</html>
