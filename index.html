@@ -12,35 +12,10 @@
 <body class="bg-gray-100">
 
     <!-- Contenedor Nav -->
-    <header>
-        <!-- <nav class="h-auto p-4 bg-fuchsia-400">
-            <div>
-                <a href="">
-                    <h1 class="flex text-white text-4xl font-bold ml-8">
-                        <i class="bi bi-wallet-fill"></i>
-                        AhorrADAs</h1>
-                </a>
-            </div>
-            <div class="flex flex-row item-center justify-end h-full ">
-                <a href=""></a>
-                <h2 class="text-white mr-6">
-                <i class="bi bi-graph-up-arrow"></i>
-                Balance</h2>
-                <a href=""></a>
-                <h2 class="text-white mr-6">
-                <i <i class="bi bi-tag-fill"></i>
-                Categorias</h2>
-                <a href=""></a>
-                <h2 class="text-white mr-6">
-                <i <i class="bi bi-pie-chart-fill"></i>
-                Reportes</h2>
-            </div>
-        </nav> -->
+    <header>      
         <nav class="bg-fuchsia-400 text-white p-6 flex justify-between items-center">
-            <!-- Título Grande a la Izquierda -->
             <h1 class="text-3xl font-bold ml-8"><i class="bi bi-wallet-fill mr-2"></i>AhorraADDAs</h1>
             
-            <!-- Títulos a la Derecha -->
             <div class="space-x-4">
               <a href="#" class="text-lg no-underline hover:underline"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
               <a href="#" class="text-lg no-underline hover:underline"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
@@ -128,6 +103,7 @@
     </div> 
     <!-- Fin de la Card # 3 -->
 
+
     <!-- Contenedor Nueva Operacion -->
     <section id="contenedor-operacion" class=" hidden max-w-xl mx-auto p-6 mt-20 bg-white shadow-md rounded-md">
         <h2 class="text-4xl font-bold mb-6">Nueva Operación</h2>
@@ -174,8 +150,72 @@
         <div class="flex justify-end space-x-4 mt-6">
             <button id="boton-cancelar" class="bg-gray-400 text-white p-3 px-6 rounded-md hover:bg-gray-600">Cancelar</button>
             <button id="boton-agregar" class="bg-fuchsia-400 text-white p-3 px-6 rounded-md hover:bg-fuchsia-600">Agregar</button>
-          </div>
+        </div>
     </section>
+
+
+
+<!-- Contenedor Categorias -->
+
+<section id="contenedor-categorias" class="hidden max-w-xl mx-auto p-6 mt-20 bg-white shadow-md rounded-md">
+    <h2 class="text-4xl font-bold mb-6">Categorías</h2>
+
+    <div class="mb-4">
+        <label for="nombre" class="block text-gray-700 text-lg font-semibold mb-2 pt-7">Nombre</label>
+        <div class="flex items-center">
+        <input id="nombre" type="text" placeholder="Escribe tu nombre" class="flex-1 border border-gray-300 p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button class="bg-fuchsia-500 text-white p-2 rounded-r-lg hover:bg-fuchsia-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500">Agregar</button> <br>
+    </div>
+
+    <!-- Lista  de categorias -->
+    <div>
+        <ul class="space-y-2">
+            <li class="flex items-center justify-between p-3 rounded-lg pt-10">
+            <span class="p-1 bg-fuchsia-300 rounded-md">Comida</span>
+            <div class="space-x-4">
+                <a href="#" class="text-blue-500 hover:underline">Editar</a>
+                <a href="#" class="text-red-500 hover:underline">Eliminar</a>
+            </div>
+            </li>
+            <li class="flex items-center justify-between p-3 rounded-lg">
+                <span class="p-1 bg-fuchsia-300 rounded-md">Servicios</span>
+            <div class="space-x-4">
+                <a href="#" class="text-blue-500 hover:underline">Editar</a>
+                <a href="#" class="text-red-500 hover:underline">Eliminar</a>
+            </div>
+            </li>
+            <li class="flex items-center justify-between p-3 rounded-lg">
+                <span class="p-1 bg-fuchsia-300 rounded-md">Salidas</span>
+            <div class="space-x-4">
+                <a href="#" class="text-blue-500 hover:underline">Editar</a>
+                <a href="#" class="text-red-500 hover:underline">Eliminar</a>
+                </div>
+            </li>
+            <li class="flex items-center justify-between p-3 rounded-lg">
+                <span class="p-1 bg-fuchsia-300 rounded-md"">Educación</span>
+                <div class="space-x-4">
+                <a href="#" class="text-blue-500 hover:underline">Editar</a>
+                <a href="#" class="text-red-500 hover:underline">Eliminar</a>
+                </div>
+            </li>
+            <li class="flex items-center justify-between p-3 rounded-lg">
+                <span class="p-1 bg-fuchsia-300 rounded-md">Transporte</span>
+                <div class="space-x-4">
+                <a href="#" class="text-blue-500 hover:underline">Editar</a>
+                <a href="#" class="text-red-500 hover:underline">Eliminar</a>
+                </div>
+            </li>
+            <li class="flex items-center justify-between p-3 rounded-lg">
+                <span class="p-1 bg-fuchsia-300 rounded-md">Trabajo</span>
+                <div class="space-x-4">
+                <a href="#" class="text-blue-500 hover:underline">Editar</a>
+                <a href="#" class="text-red-500 hover:underline">Eliminar</a>
+                </div>
+            </ul>
+        </div>
+        
+    </div>
+
 
 
 
