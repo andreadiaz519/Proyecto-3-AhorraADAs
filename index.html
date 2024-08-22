@@ -15,16 +15,35 @@
     <header>      
         <nav class="bg-fuchsia-400 text-white p-6 flex justify-between items-center">
             <h1 class="text-3xl font-bold ml-8"><i class="bi bi-wallet-fill mr-2"></i>AhorraADDAs</h1>
-            
-        <div class="space-x-4">
-            <a href="#" class="text-lg no-underline hover:underline"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
-            <a href="#" class="text-lg no-underline hover:underline"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
-            <a href="#" class="text-lg no-underline hover:underline"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
+            <div id="menu" class="hidden md:flex space-x-4">
+                <a href="#" class="text-lg no-underline hover:underline"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
+                <a href="#" class="text-lg no-underline hover:underline"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
+                <a href="#" class="text-lg no-underline hover:underline"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
             </div>
-        </nav>
+        
 
-    </header>
+    <!-- Boton del Menu Hamburguesa -->
+    <button id="menu-btn" class="text-white md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 6l16 0" />
+            <path d="M4 12l16 0" />
+            <path d="M4 18l16 0" />
+        </svg>
+    </button>
+    
+
+    <!-- Menu hamburguesa desplegable  -->
+    <div id="mobile-menu" class="hidden md:hidden">
+        <a href="#" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
+        <a href="#" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
+        <a href="#" class="block px-4 py-2 text-white hover:bg-fuchsia-00"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
+    </div>
+    </nav>
+</header>
     <!-- Fin contenedor Nav -->
+
+
     
     <!-- Contenedor de las Cards -->
     <div id="contenido-principal" class="container mx-auto pt-20 pl-20 pr-20">
@@ -41,11 +60,15 @@
     <!-- Fin Card # 1 -->
 
     <!-- Card # 2 -->
-        <section class="bg-white rounded-lg p-6 shadow-lg">
-            <h2 class="text-2xl font-bold mb-4">Filtros</h2>
-            <a href="#" class="text-blue-500 hover:underline pl-40">Restablecer filtros</a>
+        <section class="bg-white rounded-lg p-6 shadow-lg w-full max-w-xl mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold mb-4">Filtros</h2>
+                <button id="ocultarBtn" class="text-fuchsia-400 hover:text-blue-800 font-medium">Ocultar filtros</button>
+            </div>
+            
             
         <!-- Formulario -->
+         <div id="opcionesFiltros">
             <form class="space-y-4 ">
                 <div>
                     <label for="tipo" class="block text-base font-medium text-gray-700">Tipo</label>
@@ -84,25 +107,38 @@
                     </select>
                 </div>
                 </form>
+            </div>
             </section>
         </div>
         <!-- Fin del Formulario  -->
         <!-- Fin de la Card # 2 -->
         
         <!-- Card # 3 -->
-            <section class="bg-white rounded-lg p-6 shadow-lg md:w-2/3 mb-10">
-                <h2 class="text-2xl font-bold">Operaciones</h2>
-                <div>
-                    <button id="boton-agregar" class="p-2 bg-fuchsia-400 rounded-lg">+ Nueva Operacion</button>
-                </div>
-                <img  class="" src="imagenes/E-Wallet-rafiki.png" alt="">
-                <h2 class="text-center text-2xl font-medium">Sin resultados</h2>
-                <h3 class="text-center p-5">Cambia los filtros o agrega operaciones</h3>
+
+        <section class="bg-white rounded-lg p-6 shadow-lg md:w-2/3 mb-10">
+            <section class="flex flex-col sm:flex-row justify-between items-center mb-6">
+                <!-- Título alineado a la izquierda -->
+                <h2 class="text-3xl font-bold mb-4 sm:mb-0">Operaciones</h2>
+            
+
+                <button id="boton-agregar" class="bg-fuchsia-400 hover:bg-fuchsia-500 text-white font-semibold py-2 px-4 rounded">
+                Nueva Operación
+                </button>
+            </section>
+
+            <!-- Imagen -->
+            <div class="flex justify-center mb-4">
+                <img src="imagenes/E-Wallet-rafiki.png" alt="Placeholder" class="w-full sm:w-1/2 rounded-lg">
+            </div>
+
+            <h3 class="text-center text-lg font-semibold">Sin resultados</h3>
+            <p class="text-center text-gray-600">Cambia los filtros o agrega operaciones</p>
             </section>
         </div>
-    </div> 
+    </div>  
     <!-- Fin de la Card # 3 -->
 
+                
 
     <!-- Contenedor Nueva Operacion -->
     <section id="contenedor-operacion" class=" hidden max-w-xl mx-auto p-6 mt-20 bg-white shadow-md rounded-md">
