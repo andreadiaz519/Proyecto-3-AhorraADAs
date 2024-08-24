@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-//   Cerrar el contenido cuando le doy cancelar
+//   Cerrar el contenido cuando le doy cancelar en boton nueva operacion
 
   document.getElementById('boton-agregar').addEventListener('click', function() {
     document.getElementById('contenido-principal').classList.add('hidden');
@@ -48,4 +48,49 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
+});
+
+// Categorias y Reportes 
+
+let enlaceCategorias = document.getElementById('cardCategorias');
+let enlaceReportes = document.getElementById('cardReportes');
+let contenidoPrincipal = document.getElementById('contenido-principal');
+let contenedorCategorias = document.getElementById('contenedorCategorias');
+let contenedorReportes = document.getElementById('contenedorReportes');
+
+function mostrarContenedor(contenedorMostrar) {
+    contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
+    contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
+    contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
+
+    contenedorMostrar.style.display = 'block';
+}
+
+//Volver al menú principal
+function volverAlMenuPrincipal() {
+    contenidoPrincipal.style.display = 'block';  // Mostrar el contenido principal
+    contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
+    contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
+}
+
+// Click para el enlace de categorías
+enlaceCategorias.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    if (contenedorCategorias.style.display === 'none') {
+        mostrarContenedor(contenedorCategorias);
+    } else {
+        volverAlMenuPrincipal(); 
+    }
+});
+
+// Click para el enlace de reportes
+enlaceReportes.addEventListener('click', function(event) {
+    event.preventDefault(); 
+
+    if (contenedorReportes.style.display === 'none') {
+        mostrarContenedor(contenedorReportes); 
+    } else {
+        volverAlMenuPrincipal(); 
+    }
 });
