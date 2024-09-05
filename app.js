@@ -50,13 +50,48 @@ menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
+//Funcion del Menu Hamburguesa
+
+const linkBalance = document.getElementById('linkBalance');
+const linkCategorias = document.getElementById('linkCategorias');
+const linkReportes = document.getElementById('linkReportes');
+
+const contenedorPrincipal = document.getElementById('contenido-principal');
+const contenedorCategorias = document.getElementById('contenedorCategorias');
+const contenedorReportes = document.getElementById('contenedorReportes');
+
+// Ocultar todas las secciones
+function ocultarSecciones() {
+    contenedorPrincipal.classList.add('hidden');
+    contenedorCategorias.classList.add('hidden');
+    contenedorReportes.classList.add('hidden');
+}
+
+// Eventos a los enlaces
+linkBalance.addEventListener('click', (event) => {
+    event.preventDefault();  
+    ocultarSecciones();      
+    contenedorPrincipal.classList.remove('hidden'); 
+});
+
+linkCategorias.addEventListener('click', (event) => {
+    event.preventDefault();
+    ocultarSecciones();
+    contenedorCategorias.classList.remove('hidden'); 
+});
+
+linkReportes.addEventListener('click', (event) => {
+    event.preventDefault();
+    ocultarSecciones();
+    contenedorReportes.classList.remove('hidden'); 
+});
+
+
 // Categorias y Reportes 
 
-let enlaceCategorias = document.getElementById('cardCategorias');
-let enlaceReportes = document.getElementById('cardReportes');
-let contenidoPrincipal = document.getElementById('contenido-principal');
-let contenedorCategorias = document.getElementById('contenedorCategorias');
-let contenedorReportes = document.getElementById('contenedorReportes');
+const enlaceCategorias = document.getElementById('cardCategorias');
+const enlaceReportes = document.getElementById('cardReportes');
+const contenidoPrincipal = document.getElementById('contenido-principal');
 
 function mostrarContenedor(contenedorMostrar) {
     contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
