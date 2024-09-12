@@ -16,13 +16,13 @@
         <nav class="bg-fuchsia-400 text-white p-6 flex justify-between items-center">
             <h1 class="text-3xl font-bold ml-8"><i class="bi bi-wallet-fill mr-2"></i>AhorraADDAs</h1>
             <div id="menu" class="hidden md:flex space-x-5">
-                <a href="#" class="text-xl no-underline hover:underline"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
+                <a href="#" id="cardBalance" class="text-xl no-underline hover:underline"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
                 <a href="#" id="cardCategorias" class="text-xl no-underline hover:underline"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
                 <a href="#" id="cardReportes" class="text-xl no-underline hover:underline"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
             </div>
         
 
-    <!-- Boton del Menu Hamburguesa -->
+    <!-- Boton del Menu Hamburguesa oculto-->
     <button id="menu-btn" class="text-white md:hidden focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -33,11 +33,11 @@
     </button>
     
 
-    <!-- Menu hamburguesa desplegable  -->
+    <!-- Menu hamburguesa desplegable oculto -->
     <div id="mobile-menu" class="hidden md:hidden">
-        <a href="#" id="linkBalance" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
-        <a href="#" id="linkCategorias" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
-        <a href="#" id="linkReportes" class="block px-4 py-2 text-white hover:bg-fuchsia-00"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
+        <a href="#" id="mobile-balance-link" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
+        <a href="#" id="mobile-categorias-link" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
+        <a href="#" id="mobile-reportes-link" class="block px-4 py-2 text-white hover:bg-fuchsia-00"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
     </div>
     </nav>
 </header>

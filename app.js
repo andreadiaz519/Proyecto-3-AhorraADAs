@@ -47,85 +47,99 @@ const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
 });
 
-//Funcion del Menu Hamburguesa
+    // Enlaces del menú en pantallas grandes
+const enlaceBalance = document.getElementById('cardBalance');
+const enlaceCategorias = document.getElementById('cardCategorias');
+const enlaceReportes = document.getElementById('cardReportes');
 
-const linkBalance = document.getElementById('linkBalance');
-const linkCategorias = document.getElementById('linkCategorias');
-const linkReportes = document.getElementById('linkReportes');
+    // Enlaces del menú móvil
+const mobileBalanceLink = document.getElementById('mobile-balance-link');
+const mobileCategoriasLink = document.getElementById('mobile-categorias-link');
+const mobileReportesLink = document.getElementById('mobile-reportes-link');
 
-const contenedorPrincipal = document.getElementById('contenido-principal');
+    // Secciones del contenido
+const contenidoPrincipal = document.getElementById('contenido-principal');
 const contenedorCategorias = document.getElementById('contenedorCategorias');
 const contenedorReportes = document.getElementById('contenedorReportes');
 
-// Ocultar todas las secciones
-function ocultarSecciones() {
-    contenedorPrincipal.classList.add('hidden');
+    // Función para mostrar la sección seleccionada y ocultar las demás
+function mostrarSeccion(seccion) {
+    contenidoPrincipal.classList.add('hidden');
     contenedorCategorias.classList.add('hidden');
     contenedorReportes.classList.add('hidden');
-}
+    seccion.classList.remove('hidden');
+    };
 
-// Eventos a los enlaces
-linkBalance.addEventListener('click', (event) => {
-    event.preventDefault();  
-    ocultarSecciones();      
-    contenedorPrincipal.classList.remove('hidden'); 
-});
+    
+    // Enlaces del menú en pantallas grandes
+    enlaceBalance.addEventListener('click', () => {
+        mostrarSeccion(contenidoPrincipal);
+    });
 
-linkCategorias.addEventListener('click', (event) => {
-    event.preventDefault();
-    ocultarSecciones();
-    contenedorCategorias.classList.remove('hidden'); 
-});
+    enlaceCategorias.addEventListener('click', () => {
+        mostrarSeccion(contenedorCategorias);
+    });
 
-linkReportes.addEventListener('click', (event) => {
-    event.preventDefault();
-    ocultarSecciones();
-    contenedorReportes.classList.remove('hidden'); 
-});
+    enlaceReportes.addEventListener('click', () => {
+        mostrarSeccion(contenedorReportes);
+    });
+
+    // Enlaces del menú móvil
+    mobileBalanceLink.addEventListener('click', () => {
+        mostrarSeccion(contenidoPrincipal);
+        mobileMenu.classList.add('hidden'); // Ocultar el menú móvil después de seleccionar
+    });
+
+    mobileCategoriasLink.addEventListener('click', () => {
+        mostrarSeccion(contenedorCategorias);
+        mobileMenu.classList.add('hidden');
+    });
+
+    mobileReportesLink.addEventListener('click', () => {
+        mostrarSeccion(contenedorReportes);
+        mobileMenu.classList.add('hidden');
+    });
+
 
 
 // Categorias y Reportes 
 
-const enlaceCategorias = document.getElementById('cardCategorias');
-const enlaceReportes = document.getElementById('cardReportes');
-const contenidoPrincipal = document.getElementById('contenido-principal');
-
 function mostrarContenedor(contenedorMostrar) {
-    contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
-    contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
-    contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
+contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
+contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
+contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
 
-    contenedorMostrar.style.display = 'block';
+contenedorMostrar.style.display = 'block';
 }
 
-//Volver al menú principal
+// //Volver al menú principal
 function volverAlMenuPrincipal() {
     contenidoPrincipal.style.display = 'block';  // Mostrar el contenido principal
     contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
     contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
 }
 
-// Click para el enlace de categorías
+// // // // Click para el enlace de categorías
 enlaceCategorias.addEventListener('click', function(event) {
     event.preventDefault();
 
-    if (contenedorCategorias.style.display === 'none') {
-        mostrarContenedor(contenedorCategorias);
-    } else {
-        volverAlMenuPrincipal(); 
+if (contenedorCategorias.style.display === 'none') {
+    mostrarContenedor(contenedorCategorias);
+} else {
+    volverAlMenuPrincipal(); 
     }
 });
 
-// Click para el enlace de reportes
+// // // // Click para el enlace de reportes
 enlaceReportes.addEventListener('click', function(event) {
     event.preventDefault(); 
 
-    if (contenedorReportes.style.display === 'none') {
-        mostrarContenedor(contenedorReportes); 
-    } else {
-        volverAlMenuPrincipal(); 
-    }
+if (contenedorReportes.style.display === 'none') {
+    mostrarContenedor(contenedorReportes); 
+} else {
+    volverAlMenuPrincipal(); 
+}
 });
