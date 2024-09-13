@@ -47,50 +47,99 @@ const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
 });
+
+    // Enlaces del menú en pantallas grandes
+const enlaceBalance = document.getElementById('cardBalance');
+const enlaceCategorias = document.getElementById('cardCategorias');
+const enlaceReportes = document.getElementById('cardReportes');
+
+    // Enlaces del menú móvil
+const mobileBalanceLink = document.getElementById('mobile-balance-link');
+const mobileCategoriasLink = document.getElementById('mobile-categorias-link');
+const mobileReportesLink = document.getElementById('mobile-reportes-link');
+
+    // Secciones del contenido
+const contenidoPrincipal = document.getElementById('contenido-principal');
+const contenedorCategorias = document.getElementById('contenedorCategorias');
+const contenedorReportes = document.getElementById('contenedorReportes');
+
+    // Función para mostrar la sección seleccionada y ocultar las demás
+function mostrarSeccion(seccion) {
+    contenidoPrincipal.classList.add('hidden');
+    contenedorCategorias.classList.add('hidden');
+    contenedorReportes.classList.add('hidden');
+    seccion.classList.remove('hidden');
+    };
+
+    
+    // Enlaces del menú en pantallas grandes
+    enlaceBalance.addEventListener('click', () => {
+        mostrarSeccion(contenidoPrincipal);
+    });
+
+    enlaceCategorias.addEventListener('click', () => {
+        mostrarSeccion(contenedorCategorias);
+    });
+
+    enlaceReportes.addEventListener('click', () => {
+        mostrarSeccion(contenedorReportes);
+    });
+
+    // Enlaces del menú móvil
+    mobileBalanceLink.addEventListener('click', () => {
+        mostrarSeccion(contenidoPrincipal);
+        mobileMenu.classList.add('hidden'); // Ocultar el menú móvil después de seleccionar
+    });
+
+    mobileCategoriasLink.addEventListener('click', () => {
+        mostrarSeccion(contenedorCategorias);
+        mobileMenu.classList.add('hidden');
+    });
+
+    mobileReportesLink.addEventListener('click', () => {
+        mostrarSeccion(contenedorReportes);
+        mobileMenu.classList.add('hidden');
+    });
+
+
 
 // Categorias y Reportes 
 
-let enlaceCategorias = document.getElementById('cardCategorias');
-let enlaceReportes = document.getElementById('cardReportes');
-let contenidoPrincipal = document.getElementById('contenido-principal');
-let contenedorCategorias = document.getElementById('contenedorCategorias');
-let contenedorReportes = document.getElementById('contenedorReportes');
-
 function mostrarContenedor(contenedorMostrar) {
-    contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
-    contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
-    contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
+contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
+contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
+contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
 
-    contenedorMostrar.style.display = 'block';
+contenedorMostrar.style.display = 'block';
 }
 
-//Volver al menú principal
+// //Volver al menú principal
 function volverAlMenuPrincipal() {
     contenidoPrincipal.style.display = 'block';  // Mostrar el contenido principal
     contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
     contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
 }
 
-// Click para el enlace de categorías
+// // // // Click para el enlace de categorías
 enlaceCategorias.addEventListener('click', function(event) {
     event.preventDefault();
 
-    if (contenedorCategorias.style.display === 'none') {
-        mostrarContenedor(contenedorCategorias);
-    } else {
-        volverAlMenuPrincipal(); 
+if (contenedorCategorias.style.display === 'none') {
+    mostrarContenedor(contenedorCategorias);
+} else {
+    volverAlMenuPrincipal(); 
     }
 });
 
-// Click para el enlace de reportes
+// // // // Click para el enlace de reportes
 enlaceReportes.addEventListener('click', function(event) {
     event.preventDefault(); 
 
-    if (contenedorReportes.style.display === 'none') {
-        mostrarContenedor(contenedorReportes); 
-    } else {
-        volverAlMenuPrincipal(); 
-    }
+if (contenedorReportes.style.display === 'none') {
+    mostrarContenedor(contenedorReportes); 
+} else {
+    volverAlMenuPrincipal(); 
+}
 });
