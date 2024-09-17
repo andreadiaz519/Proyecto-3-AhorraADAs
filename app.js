@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //   Boton para abrir nueva operacion
 
-  getId("boton-agregar").addEventListener("click", (e) => {
+
+  document.getElementById("boton-agregar").addEventListener("click", (e) => {
     e.preventDefault();
     showSection(getId("new-operation-section"));
     printCategories(getId("new-op-category-collection"));
@@ -123,14 +124,14 @@ contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
 contenedorMostrar.style.display = 'block';
 }
 
-// //Volver al menú principal
+//Volver al menú principal
 function volverAlMenuPrincipal() {
     contenidoPrincipal.style.display = 'block';  // Mostrar el contenido principal
     contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
     contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
 }
 
-// // Click para el enlace de categorías
+// Click para el enlace de categorías
 enlaceCategorias.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -141,7 +142,7 @@ if (contenedorCategorias.style.display === 'none') {
     }
 });
 
-// // // // Click para el enlace de reportes
+// Click para el enlace de reportes
 enlaceReportes.addEventListener('click', function(event) {
     event.preventDefault(); 
 
