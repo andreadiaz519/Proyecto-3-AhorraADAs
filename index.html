@@ -22,7 +22,6 @@
                 <a href="#" id="cardReportes" class="text-xl no-underline hover:underline"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
             </div>
         
-
     <!-- Boton del Menu Hamburguesa oculto-->
     <button id="menu-btn" class="text-white md:hidden focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -32,22 +31,19 @@
             <path d="M4 18l16 0" />
         </svg>
     </button>
-    
-
+     
     <!-- Menu hamburguesa desplegable oculto -->
     <div id="mobile-menu" class="hidden md:hidden">
         <a href="#" id="mobile-balance-link" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i class="bi bi-graph-up-arrow mr-2"></i>Balance</a>
-        <a href="#" id="mobile-categorias-link" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i <i class="bi bi-tag-fill mr-2"></i>Categorías</a>
-        <a href="#" id="mobile-reportes-link" class="block px-4 py-2 text-white hover:bg-fuchsia-00"><i <i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
+        <a href="#" id="mobile-categorias-link" class="block px-4 py-2 text-white hover:bg-fuchsia-800"><i class="bi bi-tag-fill mr-2"></i>Categorías</a>
+        <a href="#" id="mobile-reportes-link" class="block px-4 py-2 text-white hover:bg-fuchsia-00"><i class="bi bi-pie-chart-fill mr-2"></i>Reporte</a>
     </div>
     </nav>
 </header>
     <!-- Fin contenedor Nav -->
-
-
     
     <!-- Contenedor de las Cards -->
-    <div id="contenido-principal" class="container mx-auto pt-20 pl-20 pr-20">
+    <div id="contenido-principal" class="container mx-auto">
 
     <!-- Card # 1 -->
                 <div class="flex flex-col md:flex-row gap-4">
@@ -56,13 +52,10 @@
                             <h2 class="text-3xl font-bold">Balance</h2>
                             <div class="flex-con">
                             </div>
-                            <div class="flex flex-row mt-10 text-lg">Ganancias</div><div class="flex flex-row" style="color: green;">+$0</div>
-                            <div class="flex flex-row"><h3 class="mt-10 text-lg">Gastos</h3></div><div class="flex flex-row" style="color: red;" >-$0</div>
-                            <div class="flex flex-col"><h3 class="mt-10 text-lg">Total</h3><div class="font-bold" >$0</div></div>
+                                <div class="flex flex-row mt-10 text-lg">Ganancias</div><div class="flex flex-row" style="color: green;">+$0</div>
+                                <div class="flex flex-row"><h3 class="mt-10 text-lg">Gastos</h3></div><div class="flex flex-row" style="color: red;" >-$0</div>
+                                <div class="flex flex-col"><h3 class="mt-10 text-lg">Total</h3><div class="flex flex-row font-bold" >$0</div></div>
                         </section>
-
-
-
     <!-- Fin Card # 1 -->
 
     <!-- Card # 2 -->
@@ -71,8 +64,7 @@
                 <h2 class="text-2xl font-bold mb-4">Filtros</h2>
                 <button id="ocultarBtn" class="text-fuchsia-400 hover:text-blue-800 font-medium">Ocultar filtros</button>
             </div>
-            
-            
+              
         <!-- Formulario -->
         <div id="opcionesFiltros">
             <form class="space-y-4 ">
@@ -120,9 +112,8 @@
         <!-- Fin de la Card # 2 -->
         
         <!-- Card # 3 -->
-
-        <section class="bg-white rounded-lg p-6 shadow-lg md:w-2/3 mb-10">
-            <section class="flex flex-col sm:flex-row justify-between items-center mb-6">
+        <section class="bg-white rounded-lg p-6 shadow-lg md:w-2/3 mb-10 my-5">
+            <section class="flex flex-col sm:flex-row justify-between items-center mb-6 ">
                 <!-- Título alineado a la izquierda -->
                     <h2 class="text-3xl font-bold mb-4 sm:mb-0">Operaciones</h2>
                     <button id="boton-agregar" class="bg-fuchsia-400 hover:bg-fuchsia-500 text-white font-semibold py-1 px-4 rounded">
@@ -141,7 +132,6 @@
         </div>
     </div>  
     <!-- Fin de la Card # 3 -->
-
 
     <!-- Contenedor Nueva Operacion -->
     <section id="contenedor-operacion" class=" hidden max-w-xl mx-auto p-6 mt-20 bg-white shadow-md rounded-md">
@@ -191,9 +181,6 @@
         <button id="boton-agregar" class="bg-fuchsia-400 text-white p-3 px-6 rounded-md hover:bg-fuchsia-600">Agregar</button>
     </div>
 </section>
-
-
-
 <!-- Contenedor de Reportes -->
 
 <div id="contenedorReportes" class="hidden max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
@@ -213,10 +200,7 @@
 </div>
 
     </div>
-
-
 <!-- Contenedor Categorias -->
-
 <section id="contenedorCategorias" class=" hidden max-w-3xl mx-auto p-6 mt-20 bg-white shadow-md rounded-md">
     <h2 class="text-4xl font-bold mb-6">Categorías</h2>
 
@@ -227,7 +211,7 @@
         <button class="bg-fuchsia-500 text-white p-2 rounded-r-lg hover:bg-fuchsia-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500">Agregar</button> <br>
     </div>
 
-    <!-- Lista  de categorias -->
+<!-- Lista  de categorias -->
     <div>
         <ul class="space-y-2">
             <li class="flex items-center justify-between p-3 rounded-lg pt-10">
@@ -274,13 +258,6 @@
             </ul>
             <div class="flex justify-end">
             </div>
-
-
-            
-
-
-
-
     <script src="app.js"></script>
 </body>
 </html>
