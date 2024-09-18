@@ -14,27 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         contenidoPrincipal.classList.add('hidden');
         contenedorOperacion.classList.remove('hidden');
     });
- FuncionalidadOperaciones
-
-  });
-
-//   Boton para abrir nueva operacion
-
-
-  document.getElementById("boton-agregar").addEventListener("click", (e) => {
-    e.preventDefault();
-    showSection(getId("new-operation-section"));
-    printCategories(getId("new-op-category-collection"));
- })
-
-//   Cerrar el contenido cuando le doy cancelar en boton nueva operacion
-
-  document.getElementById('boton-agregar').addEventListener('click', function() {
-    document.getElementById('contenido-principal').classList.add('hidden');
-    document.getElementById('contenedor-operacion').classList.remove('hidden');
-  });
-  
-   main
 
     // Cerrar formulario de nueva operación y volver a la pantalla principal
     document.getElementById('cancelarNuevaOperacionBtn').addEventListener('click', function() {
@@ -171,7 +150,6 @@ function cargarDatos() {
     });
 }
 
- FuncionalidadOperaciones
 //  / Mostrar imagen si no hay operaciones
 if (operaciones.length === 0) {
     imagenOperaciones.classList.remove('hidden');
@@ -179,18 +157,6 @@ if (operaciones.length === 0) {
     imagenOperaciones.classList.add('hidden');
 }
 
-
-//Volver al menú principal
-function volverAlMenuPrincipal() {
-    contenidoPrincipal.style.display = 'block';  // Mostrar el contenido principal
-    contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
-    contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
-}
-
-// Click para el enlace de categorías
-enlaceCategorias.addEventListener('click', function(event) {
-    event.preventDefault();
- main
 
         // Agregar o editar una operación
 function guardarOperacion() {
@@ -298,10 +264,4 @@ function guardarOperacion() {
 
             cargarDatos();
 
- FuncionalidadOperaciones
-
-// Click para el enlace de reportes
-enlaceReportes.addEventListener('click', function(event) {
-    event.preventDefault(); 
-  main
 
