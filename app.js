@@ -1,154 +1,508 @@
-// Agregar-Operaciones
+//*******DOM******** */
 
-document.addEventListener('DOMContentLoaded', function() {
-    let botonAgregar = document.getElementById('boton-agregar');
-    let contenedorOperacion = document.getElementById('contenedor-operacion');
-    let contenidoPrincipal = document.getElementById('contenido-principal');
-    let contenidoOtro = document.getElementById('contenido-otro');
+const options = document.getElementsByClassName("navbar-item");
+const hidingFilters = document.getElementById("hiding-filters");
+const showFilters = document.getElementById("show-filters");
+const filtersBox = document.getElementById("filters-box");
+//const filterType = document.getElementById("filter-type");
+const typeBalance = document.getElementById("type-balance");
+const categoryFilter = document.getElementById("category-filter");
+const dayFilter = document.getElementById("day-filter");
+const dateFilter = document.getElementById("date-filter");
+const orderFor = document.getElementById("order-for");
+const sections = document.getElementsByTagName("section");
+const categoryNew = document.getElementById("category-new");
+const categoriesEdit = document.getElementById("edit-categories");
+const categoriesForm = document.getElementById("categories-form");
+const newInputCategory = document.getElementById("new-input-category");
+const balanceButton = document.getElementById("balance-button");
+const balanceSection = document.getElementById("balance-section");
+const balanceGain = document.getElementById("balance-gain");
+const balanceSpend = document.getElementById("balance-spend");
+const balanceAll = document.getElementById("balance-all");
+const formElementsNewOperation = document.querySelectorAll(
+  "#operationnew input[data-owner], #operationnew select[data-owner]"
+);
+const formNewOperation = document.getElementById("form-operationnew");
+const listOperations = document.getElementById("operations");
 
-    botonAgregar.addEventListener('click', function() {
-      contenidoPrincipal.classList.add('hidden');
-      contenedorOperacion.classList.remove('hidden');
-    });
-  });
+const formElementsEditOperation = document
+  .querySelector("#edit-operation")
+  .querySelectorAll("input[data-owner], select[data-owner]");
 
-//   Boton para abrir nueva operacion
-
-
-  document.getElementById("boton-agregar").addEventListener("click", (e) => {
-    e.preventDefault();
-    showSection(getId("new-operation-section"));
-    printCategories(getId("new-op-category-collection"));
- })
-
-//   Cerrar el contenido cuando le doy cancelar en boton nueva operacion
-
-  document.getElementById('boton-agregar').addEventListener('click', function() {
-    document.getElementById('contenido-principal').classList.add('hidden');
-    document.getElementById('contenedor-operacion').classList.remove('hidden');
-  });
-
-  document.getElementById('boton-cancelar').addEventListener('click', function() {
-    document.getElementById('contenedor-operacion').classList.add('hidden');
-    document.getElementById('contenido-principal').classList.remove('hidden');
-  });
-
-
-  //Mostrar y ocultar Filtros
-
-  const opcionesFiltros = document.getElementById('opcionesFiltros');
-        const ocultarBtn = document.getElementById('ocultarBtn');
-
-        ocultarBtn.addEventListener('click', () => {
-            if (opcionesFiltros.style.display === 'none') {
-                opcionesFiltros.style.display = 'block';
-                ocultarBtn.textContent = 'Ocultar filtros';
-            } else {
-                opcionesFiltros.style.display = 'none';
-                ocultarBtn.textContent = 'Mostrar filtros';
-            }
-        });
+const categoriesReport = document.getElementById(
+  "categories-report"
+);
+const reportResumen = document.getElementById("resume-report");
 
 
-// Menu hamburguesa
 
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+//******EVENTS****** */
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+hidingFilters.addEventListener ("click", () => {
+  filtersBox.style.visibility = "hidden";
+  showFilters.style.visibility = "visible"; 
+  hidingFilters.style.visibility = "hidden";
 });
 
-    // Enlaces del menú en pantallas grandes
-const enlaceBalance = document.getElementById('cardBalance');
-const enlaceCategorias = document.getElementById('cardCategorias');
-const enlaceReportes = document.getElementById('cardReportes');
-
-    // Enlaces del menú móvil
-const mobileBalanceLink = document.getElementById('mobile-balance-link');
-const mobileCategoriasLink = document.getElementById('mobile-categorias-link');
-const mobileReportesLink = document.getElementById('mobile-reportes-link');
-
-    // Secciones del contenido
-const contenidoPrincipal = document.getElementById('contenido-principal');
-const contenedorCategorias = document.getElementById('contenedorCategorias');
-const contenedorReportes = document.getElementById('contenedorReportes');
-
-    // Función para mostrar la sección seleccionada y ocultar las demás
-function mostrarSeccion(seccion) {
-    contenidoPrincipal.classList.add('hidden');
-    contenedorCategorias.classList.add('hidden');
-    contenedorReportes.classList.add('hidden');
-    seccion.classList.remove('hidden');
-    };
-
-    
-    // Enlaces del menú en pantallas grandes
-    enlaceBalance.addEventListener('click', () => {
-        mostrarSeccion(contenidoPrincipal);
-    });
-
-    enlaceCategorias.addEventListener('click', () => {
-        mostrarSeccion(contenedorCategorias);
-    });
-
-    enlaceReportes.addEventListener('click', () => {
-        mostrarSeccion(contenedorReportes);
-    });
-
-    // Enlaces del menú móvil
-    mobileBalanceLink.addEventListener('click', () => {
-        mostrarSeccion(contenidoPrincipal);
-        mobileMenu.classList.add('hidden'); // Ocultar el menú móvil después de seleccionar
-    });
-
-    mobileCategoriasLink.addEventListener('click', () => {
-        mostrarSeccion(contenedorCategorias);
-        mobileMenu.classList.add('hidden');
-    });
-
-    mobileReportesLink.addEventListener('click', () => {
-        mostrarSeccion(contenedorReportes);
-        mobileMenu.classList.add('hidden');
-    });
+showFilters.addEventListener ("click", () => {
+  filtersBox.style.visibility = "visible";
+  showFilters.style.visibility = "hidden";
+  hidingFilters.style.visibility = "visible";
+});
 
 
 
-// Categorias y Reportes 
 
-function mostrarContenedor(contenedorMostrar) {
-contenidoPrincipal.style.display = 'none';  // Ocultar el contenido principal
-contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
-contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
+//console.log(sections, "Objecto");
+const sectionsList = [...sections];
 
-contenedorMostrar.style.display = 'block';
-}
-
-//Volver al menú principal
-function volverAlMenuPrincipal() {
-    contenidoPrincipal.style.display = 'block';  // Mostrar el contenido principal
-    contenedorCategorias.style.display = 'none'; // Ocultar contenedor de categorías
-    contenedorReportes.style.display = 'none';   // Ocultar contenedor de reportes
-}
-
-// Click para el enlace de categorías
-enlaceCategorias.addEventListener('click', function(event) {
-    event.preventDefault();
-
-if (contenedorCategorias.style.display === 'none') {
-    mostrarContenedor(contenedorCategorias);
-} else {
-    volverAlMenuPrincipal(); 
+const views = (page) => {
+  sectionsList.forEach((section) => {
+    if (section.id === page) {
+      section.classList.remove("is-hidden");
+    } else {
+      section.classList.add("is-hidden");
     }
-});
+  });
+  //console.log(sectionsList);
+};
 
-// Click para el enlace de reportes
-enlaceReportes.addEventListener('click', function(event) {
-    event.preventDefault(); 
 
-if (contenedorReportes.style.display === 'none') {
-    mostrarContenedor(contenedorReportes); 
-} else {
-    volverAlMenuPrincipal(); 
+ const generateId = () => {
+  let p1 = Math.floor(Math.random() * 0x10000).toString(16);
+  let p2 = new Date().getTime();
+  return `${p1}${p2}`;
+};
+
+const categories = [
+  { id: "0", name: "Servicios" },
+  { id: "1", name: "Trasporte" },
+  { id: "2", name: "Educación" },
+  { id: "3", name: "Trabajo" },
+  { id: "4", name: "Comida" },
+  { id: "5", name: "Deporte" },
+];
+
+let operations = [];
+let operationEditar = {};
+let reportsSections = {
+  resumen: [],
+  categoryTotal: [],
+  totalesMes: [],
+};
+
+//Agregar categoría
+const addCategory = () => {
+  console.log("ejemplo");
+  console.log(newInputCategory.value);
+  if (newInputCategory.value != "") {
+    categories.unshift({ id: generateId(), name: newInputCategory.value });
+    chooseCategory();
+    myCategoryList();
+    newInputCategory.value = "";
+  }
+};
+
+//Borrar categoría
+const deleteCategory = (category) => {
+  const value = categories.findIndex((e) => e.id == category);
+  if (value >= 0) {
+    categories.splice(value, 1);
+    myCategoryList();
+    chooseCategory();
+  }
+};
+
+
+
+const myCategoryList = () => {
+  categoriesForm.innerHTML = "";
+  categories.forEach((category) => {
+    let frame = document.createElement("div");
+    frame.innerHTML = `
+    <div class="columns">
+      <div class="column">
+        <span class="tag is-info is-light is-medium" style ="background-color: #2be9cc">${category.name}</span>
+      </div>
+      <div class="column">
+        <div class="buttons">
+          <button class="button is-white">Editar</button>
+          <button class="button is-white">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+    let optionsButtons = frame.querySelectorAll(".button");
+    optionsButtons[0].onclick = () => {
+      editCategory(category.id); //Falta poder editar categoría !
+    };
+    optionsButtons[1].onclick = () => {
+      deleteCategory(category.id);
+    };
+    categoriesForm.appendChild(frame);
+  });
+};
+
+// Nueva Operación
+const chooseCategory = () => {
+  categoryNew.innerHTML = "";
+  categories.forEach((category, index) => {
+    categoryNew.options[index] = new Option(category.name, category.name);
+    categoriesEdit.options[index] = new Option(category.name, category.name);
+  });
+};
+
+//Operaciones
+const seeNewOperation = () => {
+  formNewOperation.reset();
+  views("operationnew");
+};
+
+const addOperation = () => {
+  let operation = {};
+  for (let i = 0; i < formElementsNewOperation.length; i++) {
+    operation["id"] = generateId();
+    operation[formElementsNewOperation[i].getAttribute("name")] =
+      formElementsNewOperation[i].value;
+  }
+  //console.log(operation);
+  operations.push(operation);
+  addLocalStorage("operations", operations);
+  myOperationsList();
+  views("home");
+};
+
+const myOperationsList = () => {
+  listOperations.innerHTML = "";
+  if (localStorage.getItem("operations")) {
+    operations = myLocalStorage("operations");
+    if (operations.length > 0) {
+      operations.forEach((operation) => {
+        let frame = document.createElement("div");
+        frame.innerHTML = `<div class="columns has-text-weight-medium is-mobile">
+        <div class="column">${operation.description}</div>
+        <div class="column">
+          <span class="tag is-info is-light is-medium" style ="background-color: #2be9cc"
+            >${operation.category}</span
+          >
+        </div>
+        <div class="column">${operation.date}</div>
+        <div class="column">${operation.monto}</div>
+        <div class="column">
+          <button class="button is-success is-inverted is-small" >
+            <i class="far fa-money-check-edit-alt"></i>
+          </button>
+          <button class="button is-danger is-inverted is-small" >
+            <i class="fas fa-eraser"></i>
+          </button>
+        </div>
+      </div>`;
+
+        let optionsButtons = frame.querySelectorAll(".button");
+        optionsButtons[0].onclick = () => {
+          editOperation(operation.id);
+        };
+        optionsButtons[1].onclick = () => {
+          deleteOperation(operation.id);
+        };
+
+        listOperations.appendChild(frame);
+      });
+    }
+  }
+};
+
+//Eliminar operación
+const deleteOperation = (id) => {
+  const value = operations.findIndex((e) => e.id == id);
+  if (value >= 0) {
+    operations.splice(value, 1);
+    addLocalStorage("operations", operations);
+    myOperationsList();
+  }
+};
+
+//Editar operación
+const editOperation = (id) => {
+  views("edit-operation");
+  operationEditar = operations.find((operation) => operation.id === id);
+  for (let i = 0; i < formElementsEditOperation.length; i++) {
+    formElementsEditOperation[i].value =
+      operationEditar[formElementsEditOperation[i].getAttribute("name")];
+  }
+};
+
+const confirmEditOperation = () => {
+  for (let i = 0; i < formElementsEditOperation.length; i++) {
+    operationEditar[formElementsEditOperation[i].getAttribute("name")] =
+      formElementsEditOperation[i].value;
+  }
+
+  const posOperation = operations.findIndex((e) => e.id === operationEditar.id);
+  operations.splice(posOperation, 1, operationEditar);
+  addLocalStorage("operations", operations);
+  myOperationsList();
+  views("home");
+};
+
+const cancel = () => {
+  views("home");
+};
+
+
+
+
+//Filtros de Tipo y Categoría (no funciona- lo comento para que vuelva a funcionar reporte y el input de Tipo en Nueva Operación)
+
+ /* let newData = [...operations]
+
+const filterType = (e) =>{
+    let atribute = ""
+    if (e.target.id == "filter-type") {
+        newData = [...operations]
+        categoryFilter.value = "Todas"
+      atribute = "tipo"  
+    }else{
+       typeBalance.value = "Todas"
+       atribute = "categoria" 
+    }
+    newData = newData.filter(operation => operation[atribute] === e.target.value)
+    e.target.value === "Todas" ? myOperationsList(operations) : myOperationsList(newData)
 }
+
+
+typeBalance.addEventListener("change", (e) =>{filterType(e)})
+categoryFilter.addEventListener("change", (e) =>{filterType(e)}) */
+
+
+
+//Filtros Desde
+
+
+//Para que muestre la fecha de hoy al iniciar
+let day = new Date().getDate();
+let month = new Date().getMonth() + 1;
+let year = new Date().getFullYear(); 
+
+//Input Desde del home
+dayFilter.value = `${year}-${month < 10 ? "0" + month: month}-${day < 10 ? "0" + day: day}`;
+
+
+//Input fecha de +Nueva operación no funciona aún
+dateFilter.value = `${year}-${month < 10 ? "0" + month: month}-${day < 10 ? "0" + day: day}`;
+
+//Filtra la categoría por fecha(no jala)
+
+ dayFilter.addEventListener("change", (e)=>{
+  const result = operations.filter(operation => operation.Fecha === e.target.value )
+  myOperationsList(result)
+})
+
+
+
+//Filtra la categoría por orden a seleccionar(no jala)
+
+ orderFor.addEventListener("change", ()=>{
+  //console.log(orderFor.value)
+  let newOrder = [...operations]
+  
+  if (orderFor.value === "more-recent") {
+      newOrder.sort((a,b)=> a.fecha < b.fecha ? 1 : -1)
+  }
+  if (orderFor.value === "less-recent") {
+      newOrder.sort((a,b)=> a.fecha > b.fecha ? 1 : -1)
+  }
+  if (orderFor.value === "big-amount") {
+      newOrder.sort((a,b)=> a.monto < b.monto ? 1 : -1)
+  }
+  if (orderFor.value === "less-amount") {
+      newOrder.sort((a,b)=> a.monto > b.monto ? 1 : -1)
+  }
+  if (orderFor.value === "a-z") {
+    newOrder.sort((a,b)=> a.descripcion > b.descripcion ? 1 : -1)
+}
+if (orderFor.value === "z-a") {
+    newOrder.sort((a,b)=> a.descripcion < b.descripcion ? 1 : -1)
+}
+  myOperationsList(newOrder)
+}) 
+
+
+
+
+//fin de tipo y categoría
+
+//reports
+makeReport = () => {
+  views("reports");
+  let totalReportCategory = [];
+  categories.forEach((category) => {
+    let itemReport = {
+      category: category.name,
+      ganancia: 0,
+      gasto: 0,
+      balance: 0,
+    };
+    operations.forEach((operation) => {
+      if (category.name === operation.category) {
+        if (operation.type === "Gasto") {
+          itemReport.gasto += parseFloat(operation.monto);
+        }
+        if (operation.type === "Ganancia") {
+          itemReport.ganancia += parseFloat(operation.monto);
+        }
+      }
+    });
+    itemReport.balance = itemReport.ganancia - itemReport.gasto;
+    totalReportCategory.push(itemReport);
+  });
+  reportsSections.categoryTotal = totalReportCategory;
+
+  let maxGanancia = getMaximosCategory("ganancia");
+  let maxGasto = getMaximosCategory("gasto");
+  let maxBalance = getMaximosCategory("balance");
+
+  reportsSections.resumen.push({
+    title: "Categoría con mayor ganancia",
+    category: maxGanancia.category,
+    monto: maxGanancia.ganancia,
+  });
+  reportsSections.resumen.push({
+    title: "Categoría con mayor gasto",
+    category: maxGasto.category,
+    monto: maxGasto.gasto,
+  });
+  reportsSections.resumen.push({
+    title: "Categoría con mayor balance",
+    category: maxBalance.category,
+    monto: maxBalance.balance,
+  });
+  paintReports();
+};
+
+const getMaximosCategory = (campo) => {
+  return reportsSections.categoryTotal.reduce((prev, current) =>
+    prev[campo] > current[campo] ? prev : current
+  );
+};
+
+paintReports = () => {
+  categoriesReport.innerHTML = "";
+  reportsSections.categoryTotal.forEach((category) => {
+    let frame = document.createElement("div");
+    frame.innerHTML = `
+    <div class="columns has-text-weight-medium is-mobile">
+    <div class="column">${category.category}</div>
+    <div class="column">${category.ganancia}</div>
+    <div class="column">${category.gasto}</div>
+    <div class="column">${category.balance}</div>
+  </div>
+  `;
+    categoriesReport.appendChild(frame);
+  });
+
+  reportResumen.innerHTML = "";
+  reportsSections.resumen.forEach((resumen) => {
+    let frame = document.createElement("div");
+    frame.innerHTML = `
+    <div class="columns has-text-weight-medium is-mobile">
+      <div class="column">${resumen.title}</div>
+      <div class="column">
+        <span class="tag is-info is-light is-medium" style ="background-color: #2be9cc">${resumen.category}</span>
+      </div>
+      <div class="column">${resumen.monto}</div>
+    </div>
+  `;
+    reportResumen.appendChild(frame);
+  });
+};
+
+//Caja de balance del home
+
+//prueba balance no jala aún
+
+const balanceBox = (operations) => {
+  return operations.reduce(
+    (balance, operacion) => {
+      if (operacion.tipo === "Ganancia") {
+        return {
+          ...balance,
+          ganancia: Number(balance.ganancia) + Number(operacion.monto),
+          total: Number(balance.total) + Number(operacion.monto),
+        };
+      }
+
+      if (operacion.tipo === "Gasto") {
+        return {
+          ...balance,
+          gasto: Number(balance.gasto) + Number(operacion.monto),
+          total: Number(balance.total) + Number(operacion.monto),
+        };
+      }
+    },
+    {
+      ganancia: 0,
+      gasto: 0,
+      total: 0,
+    }
+  );
+};
+
+// Impresión del balance
+
+const balancePrint = (operations) => {
+  const balanceObject = balanceBox(operations);
+
+  balanceAll.classList.remove("column blue-cero", "column red-cero");
+
+  if (balanceObject.total > 0) {
+    balanceAll.classList.add("column red-cero");
+  }
+  if (balanceObject.total < 0) {
+    balanceAll.classList.add("column blue-cero");
+  }
+
+  balanceGain.innerHTML = `$${balanceObject["ganancia"]}`;
+  balanceSpend.innerHTML = `$${balanceObject["gasto"]}`;
+  balanceAll.innerHTML = `$${balanceObject["total"]}`;
+};
+
+
+//fin prueba balance
+
+//Local Storage
+const addLocalStorage = (property, value) => {
+  localStorage.setItem(property, JSON.stringify(value));
+};
+
+const myLocalStorage = (property) => {
+  return JSON.parse(localStorage.getItem(property));
+};
+
+const principal = () => {
+  chooseCategory();
+  myCategoryList();
+  myOperationsList();
+};
+
+principal();
+
+// Menú hamburguesa
+document.addEventListener("DOMContentLoaded", () => {
+  const $navbarBurgers = Array.prototype.slice.call(
+    document.querySelectorAll(".navbar-burger"),
+    0
+  );
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach((el) => {
+      el.addEventListener("click", () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle("is-active");
+        $target.classList.toggle("is-active");
+      });
+    });
+  }
 });
