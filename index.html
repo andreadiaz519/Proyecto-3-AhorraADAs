@@ -50,6 +50,7 @@
       </div>
     </nav>
 
+
     <main class="container section">
       <!-- home  -->
       <section id="home">
@@ -89,44 +90,7 @@
                   </div>
                 </div>
 
-                <div class="field">
-                  <label class="label">Categoría</label>
-                  <div class="control">
-                    <div class="select is-fullwidth">
-                      <select id="category-filter">
-                        <option class="category-style" value="Todas">Todas</option>
-                        <option value="Comida">Comida</option>
-                        <option value="Servicios">Servicios</option>
-                        <option value="Salidas">Salidas</option>
-                        <option value="Educación">Educación</option>
-                        <option value="Transporte">Transporte</option>
-                        <option value="Trabajo">Trabajo</option>
-                        <option value="Deporte">Deporte</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="field">
-                  <label for="fecha" class="label">Desde</label>
-                  <div class="control">
-                    <input id="day-filter" class="input" type="date" />
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Ordenar por</label>
-                  <div class="control">
-                    <div class="select is-fullwidth">
-                      <select id="order-for">
-                        <option value="more-recent">Más reciente</option>
-                        <option value="less-recent">Menos reciente</option>
-                        <option value="big-amount">Mayor monto</option>
-                        <option value="less-amount">Menor monto</option>
-                        <option value="a-z">A/Z</option>
-                        <option value="z-a">Z/A</option>
-                      </select>
-                    </div>
-                  </div>
                 </div>
               </form>
             </div>
@@ -156,164 +120,7 @@
             </div>
           </div>
         </div>
-      </section>
-      <!-- new operation -->
-      <section id="operationnew" class="is-hidden">
-        <form class="box" id="form-operationnew">
-          <h1 class="title">Nueva Operación</h1>
-          <div class="field">
-            <label class="label">Descripción</label>
-            <div class="control">
-              <input
-                class="input"
-                type="text"
-                placeholder=""
-                data-owner="operationnew"
-                name="description"
-              />
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Monto</label>
-            <div class="control">
-              <input
-                class="input"
-                type="number"
-                placeholder="0"
-                value="0"
-                data-owner="operationnew"
-                name="monto"
-              />
-            </div>
-          </div>
 
-          <div class="field">
-            <label class="label">Tipo</label>
-            <div class="control">
-              <div class="select is-fullwidth">
-                <select data-owner="operationnew" name="type" id="type-balance">
-                  <option value="Todos">Todos</option>
-                  <option value="Ganancia">Ganancia</option>
-                  <option value="Gasto">Gasto</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Categoría</label>
-            <div class="control">
-              <div class="select is-fullwidth">
-                <select
-                  id="category-new"
-                  data-owner="operationnew"
-                  name="category"
-                ></select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Fecha</label>
-            <div class="control">
-              <input
-                id="date-filter"
-                class="input"
-                type="date"
-                data-owner="operationnew"
-                name="date"
-              />
-            </div>
-          </div>
-
-          <div class="buttons mt-5 is-flex is-justify-content-flex-end">
-            <button class="button is-light" type="button" onclick="cancel()">
-              Cancelar
-            </button>
-            <button
-              class="button is-info"
-              type="button"
-              onclick="addOperation()"
-            >
-              Agregar
-            </button>
-          </div>
-        </form>
-      </section>
-      <!-- Balance -->
-      <section id="balance section" class="is-hidden">
-        <h1 class="title">Balance</h1>
-      </section>
-      <!-- Categorías -->
-      <section id="categories" class="is-hidden">
-        <div class="box">
-          <h1 class="title">Categorias</h1>
-          <div class="field is-grouped mb-5">
-            <p class="control is-expanded">
-              <input
-                id="new-input-category"
-                class="input"
-                type="text"
-                placeholder="Ingresa tu nueva categoría 🙂"
-              />
-            </p>
-            <p class="control">
-              <a class="button is-info" onclick="addCategory()">Agregar</a>
-            </p>
-          </div>
-          <div id="categories-form"></div>
-        </div>
-      </section>
-      <!-- Reportes -->
-      <section id="reports" class="is-hidden">
-          <h1 class="title mb-3">Reportes</h1>
-          <div class="mb-4" >
-            
-            <h2 class="is-size-4 mb-5">Resumen</h2>
-            <div id="resume-report"></div>
-          </div>
-          <div class="mb-4">
-            <h2 class="is-size-4 mb-5">Totales por categoría</h2>
-            <div class="columns has-text-weight-medium is-mobile mb-5">
-              <div class="column">Categoría</div>
-              <div class="column blue-cero">Ganancias</div>
-              <div class="column red-cero">Gastos</div>
-              <div class="column">Balance</div>
-            </div>
-            <div id="categories-report"></div>
-          </div>
-          <div id="total-month" class="mb-4">
-            <h2 class="is-size-4">Totales por mes</h2>
-            <div class="columns has-text-weight-medium is-mobile mb-5">
-              <div class="column">Mes</div>
-              <div class="column blue-cero">Ganancias</div>
-              <div class="column red-cero">Gastos</div>
-              <div class="column">Balance</div>
-            </div>
-            <!-- <div class="columns has-text-weight-medium is-mobile">
-              <div class="column">Nombre del criterio</div>
-              <div class="column">
-                <span class="tag is-info is-light is-medium" style="background-color: #2be9cc;">Categoria</span>
-              </div>
-              <div class="column">otra</div>
-            </div> -->
-          </div>
-        </div>
-      </section>
-      <!--Editar operación-->
-      <section id="edit-operation" class="is-hidden">
-        <form class="box">
-          <h1 class="title">Editar Operación</h1>
-          <div class="field">
-            <label class="label">Descripción</label>
-            <div class="control">
-              <input
-                class="input"
-                type="text"
-                placeholder=""
-                data-owner="edit-operation"
-                name="description"
-              />
             </div>
           </div>
           <div class="field">
@@ -353,34 +160,4 @@
                 ></select>
               </div>
             </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Fecha</label>
-            <div class="control">
-              <input
-                class="input"
-                type="date"
-                data-owner="edit-operation"
-                name="date"
-              />
-            </div>
-          </div>
-
-          <div class="buttons mt-5 is-flex is-justify-content-flex-end">
-            <button class="button is-light" type="button" onclick="cancel()">
-              Cancelar
-            </button>
-            <button
-              class="button is-info"
-              type="button"
-              onclick="editOperation()">
-              Editar
-            </button>
-          </div>
-        </form>
-      </section>
-    </main>
-    <script src="./app.js"></script>
-  </body>
 </html>
